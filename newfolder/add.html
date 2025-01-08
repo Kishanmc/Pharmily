@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Doctor</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body Styling */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: white;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Header Styling */
+    header {
+      background-color: #6a4c9c; /* Violet background */
+      color: white;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Header Title */
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    /* Form Container */
+    .form-container {
+      max-width: 800px;
+      margin: 30px auto;
+      background-color: #f9f9f9; /* Soft white background */
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Form Title */
+    h2 {
+      text-align: center;
+      color: #6a4c9c; /* Violet color for title */
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    /* Form Elements */
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-size: 1.1rem;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    input[type="text"]:focus,
+    input[type="number"]:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #6a4c9c; /* Violet border on focus */
+    }
+
+    /* Button Styling */
+    button {
+      background-color: #6a4c9c; /* Violet */
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      display: block;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #4e3581; /* Darker violet on hover */
+    }
+
+    /* Footer Styling */
+    footer {
+      background-color: #6a4c9c; /* Violet */
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 1rem;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Add a Doctor</h1>
+  </header>
+
+  <div class="form-container">
+    <h2>Enter Doctor Details</h2>
+    <form id="doctorForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required><br>
+
+      <label for="specialization">Specialization:</label>
+      <input type="text" id="specialization" required><br>
+
+      <label for="location">Location:</label>
+      <input type="text" id="location" required><br>
+
+      <label for="experience">Experience (years):</label>
+      <input type="number" id="experience" required><br>
+
+      <button type="submit">Add Doctor</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>Cardiology Clinic © 2025</p>
+  </footer>
+
+  <script>
+    document.getElementById("doctorForm").addEventListener("submit", async function(event) {
+      event.preventDefault(); // Prevent form from reloading the page
+  
+      const name = document.getElementById("name").value;
+      const specialization = document.getElementById("specialization").value;
+      const location = document.getElementById("location").value;
+      const experience = document.getElementById("experience").value;
+  
+      const newDoctor = {
+        name: name,
+        specialization: specialization,
+        location: location,
+        experience: experience
+      };
+  
+      // Send the data to the backend
+      const response = await fetch('http://localhost:5000/doctors', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newDoctor)
+      });
+  
+      if (response.ok) {
+        alert('Doctor added successfully');
+      } else {
+        alert('Error adding doctor');
+      }
+    });
+  </script>
+  
+</body>
+</html>

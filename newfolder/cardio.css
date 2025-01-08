@@ -1,0 +1,130 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body Styling */
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: white;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  /* Header Styling */
+  header {
+    background-color: #6a4c9c; /* Violet background */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header Title */
+  header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+  }
+  
+  /* Main Content Styling */
+  .main-content {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 30px auto;
+    background-color: #f9f9f9; /* Soft white background */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Button Styling */
+  button {
+    background-color: #6a4c9c; /* Violet */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #4e3581; /* Darker violet on hover */
+  }
+  
+  /* Card Layout */
+  .card {
+    background-color: white;
+    padding: 20px;
+    margin: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Card Title */
+  .card h3 {
+    color: #6a4c9c; /* Violet color for titles */
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+  
+  /* Card Text */
+  .card p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  /* Footer Styling */
+  footer {
+    background-color: #6a4c9c; /* Violet */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 1rem;
+    margin-top: 30px;
+  }
+  
+  /* Form Input Styling */
+  input[type="text"],
+  input[type="number"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  input[type="text"]:focus,
+  input[type="number"]:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #6a4c9c; /* Violet border on focus */
+  }
+  
+  /* Form Button Styling */
+  form button {
+    background-color: #6a4c9c; /* Violet */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  form button:hover {
+    background-color: #4e3581; /* Darker violet on hover */
+  }
+  

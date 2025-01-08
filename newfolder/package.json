@@ -1,0 +1,24 @@
+{
+  "name": "pharmily",
+  "version": "1.0.0",
+  "description": "Healthcare app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kishanmc/Pharmily.git"
+  },
+  "author": "Kishan M C",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kishanmc/Pharmily/issues"
+  },
+  "homepage": "https://github.com/Kishanmc/Pharmily#readme",
+  "dependencies": {
+    "express": "^4.21.2",
+    "mongodb": "4.0",
+    "nodemon": "^3.1.9"
+  }
+}

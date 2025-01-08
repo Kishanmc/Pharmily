@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Blogs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-post {
+            margin-bottom: 20px;
+        }
+
+        .blog-post h2 {
+            color: #4CAF50;
+        }
+
+        .blog-post p {
+            line-height: 1.6;
+        }
+
+        .load-more {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .load-more:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Health Blogs</h1>
+    </header>
+
+    <div class="container" id="blog-container">
+        <div class="blog-post">
+            <h2>5 Tips for a Healthy Lifestyle</h2>
+            <p>Maintaining a healthy lifestyle doesn't have to be hard. Start by drinking plenty of water, eating more fruits and vegetables, and staying active...</p>
+        </div>
+
+        <div class="blog-post">
+            <h2>The Benefits of Regular Exercise</h2>
+            <p>Exercise not only helps you stay in shape but also boosts your mood and improves your mental health. Discover why daily workouts are essential...</p>
+        </div>
+    </div>
+
+    <a href="#" class="load-more" id="loadMore">Load More Blogs</a>
+
+    <script>
+        const blogContainer = document.getElementById('blog-container');
+        const loadMoreButton = document.getElementById('loadMore');
+
+        const moreBlogs = [
+            {
+                title: "10 Superfoods for a Strong Immune System",
+                content: "Boost your immunity with these 10 superfoods that are packed with nutrients and antioxidants to keep you healthy."
+            },
+            {
+                title: "How to Get Better Sleep at Night",
+                content: "A good night's sleep is crucial for overall health. Learn how to improve your sleep quality with simple tips and tricks."
+            },
+            {
+                title: "Managing Stress for Better Mental Health",
+                content: "Stress can take a toll on your mental health. Find out how to manage stress effectively and improve your well-being."
+            }
+        ];
+
+        let blogsLoaded = 0;
+
+        loadMoreButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            const nextBlog = moreBlogs[blogsLoaded];
+
+            if (nextBlog) {
+                const blogPost = document.createElement('div');
+                blogPost.classList.add('blog-post');
+
+                const blogTitle = document.createElement('h2');
+                blogTitle.textContent = nextBlog.title;
+                
+                const blogContent = document.createElement('p');
+                blogContent.textContent = nextBlog.content;
+
+                blogPost.appendChild(blogTitle);
+                blogPost.appendChild(blogContent);
+
+                blogContainer.appendChild(blogPost);
+                blogsLoaded++;
+
+                if (blogsLoaded === moreBlogs.length) {
+                    loadMoreButton.style.display = 'none';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

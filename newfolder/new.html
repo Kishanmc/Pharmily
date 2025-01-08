@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Portal Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            flex-grow: 1;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        h1 {
+            margin-bottom: 2rem;
+        }
+
+        .login-options {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .login-option {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .login-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .login-option h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .login-option p {
+            margin-bottom: 1.5rem;
+            color: #7f8c8d;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        footer {
+            background-color: #34495e;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .login-options {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .login-option {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Medical Portal</h1>
+    </header>
+
+    <div class="container">
+        <h2>Choose Your Login Option</h2>
+        <div class="login-options">
+            <div class="login-option" id="doctorLogin">
+                <h2>Doctor Login</h2>
+                <p>Access your patient records, schedules, and more.</p>
+                <button><a href="doctorslogin.html" class="btn">Doctor</a></button>
+            </div>
+            <div class="login-option" id="patientLogin">
+                <h2>Patient Login</h2>
+                <p>View your appointments, test results, and medical history.</p>
+                <a href="patientlogin.html" class="btn">Patient</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Medical Portal. All rights reserved.</p>
+        <p>Contact: support@medicalportal.com | Phone: (555) 123-4567</p>
+    </footer>
+
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            const loginOptions = document.querySelectorAll('.login-option');
+            
+            loginOptions.forEach((option, index) => {
+                option.style.opacity = '0';
+                option.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    option.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    option.style.opacity = '1';
+                    option.style.transform = 'translateY(0)';
+                }, 200 * (index + 1));
+            });
+
+            // Add click event listeners to login buttons
+            document.querySelectorAll('.btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const loginType = this.textContent.includes('Doctor') ? 'Doctor' : 'Patient';
+                    
+                });
+            });
+        });
+    </script> -->
+</body>
+</html>

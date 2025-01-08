@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Care E-Market</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .product {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .product img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .product-details {
+            flex-grow: 1;
+            margin-left: 20px;
+        }
+
+        .product-details h3 {
+            margin: 0;
+            color: #4CAF50;
+        }
+
+        .product-details p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .add-to-cart {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .add-to-cart:hover {
+            background-color: #45a049;
+        }
+
+        .cart {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+        }
+
+        .cart h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Health Care E-Market</h1>
+    </header>
+
+    <div class="container" id="product-container">
+        <div class="product">
+            <img src="https://via.placeholder.com/100" alt="Product 1">
+            <div class="product-details">
+                <h3>Face Mask</h3>
+                <p>High-quality face masks to protect you and your loved ones.</p>
+                <p>Price: $10</p>
+            </div>
+            <button class="add-to-cart" data-product="Face Mask" data-price="10">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="https://via.placeholder.com/100" alt="Product 2">
+            <div class="product-details">
+                <h3>Hand Sanitizer</h3>
+                <p>Keep your hands clean and germ-free.</p>
+                <p>Price: $5</p>
+            </div>
+            <button class="add-to-cart" data-product="Hand Sanitizer" data-price="5">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="https://via.placeholder.com/100" alt="Product 3">
+            <div class="product-details">
+                <h3>Vitamin C Tablets</h3>
+                <p>Boost your immunity with our vitamin C supplements.</p>
+                <p>Price: $15</p>
+            </div>
+            <button class="add-to-cart" data-product="Vitamin C Tablets" data-price="15">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="container cart" id="cart-container">
+        <h2>Shopping Cart</h2>
+        <ul id="cart-items">
+            <li>No items in cart.</li>
+        </ul>
+        <p>Total: $<span id="total-price">0</span></p>
+    </div>
+
+    <script>
+        const cartContainer = document.getElementById('cart-container');
+        const cartItems = document.getElementById('cart-items');
+        const totalPriceElement = document.getElementById('total-price');
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+        let cart = [];
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const product = button.getAttribute('data-product');
+                const price = parseFloat(button.getAttribute('data-price'));
+
+                cart.push({ product, price });
+                updateCart();
+            });
+        });
+
+        function updateCart() {
+            cartItems.innerHTML = '';
+
+            let total = 0;
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.product} - $${item.price}`;
+                cartItems.appendChild(li);
+                total += item.price;
+            });
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<li>No items in cart.</li>';
+            }
+
+            totalPriceElement.textContent = total.toFixed(2);
+        }
+    </script>
+</body>
+</html>
